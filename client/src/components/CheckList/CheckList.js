@@ -3,10 +3,12 @@ import { gql, graphql } from "react-apollo";
 
 import CheckListItem from "./../CheckListItem";
 
-const checkListItemsQuery = gql`
+export const checkListItemsQuery = gql`
     query CheckListItemsQuery {
         checkListItems {
             name
+            status
+            id
         }
     }
 `;

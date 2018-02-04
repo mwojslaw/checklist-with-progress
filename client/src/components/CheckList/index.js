@@ -1,1 +1,1 @@
-export { default } from "./CheckList";
+export { default, checkListItemsQuery } from "./CheckList";
