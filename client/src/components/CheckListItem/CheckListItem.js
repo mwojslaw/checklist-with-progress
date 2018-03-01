@@ -1,9 +1,8 @@
 import React from "react";
-
 import { gql, graphql } from "react-apollo";
 import { checkListItemsByStatusQuery } from "./../CheckList/CheckList";
 
-const checkListItemStatus = Object.freeze({
+export const checkListItemStatus = Object.freeze({
     notStarted: "notStarted",
     inProgress: "inProgress",
     done: "done"

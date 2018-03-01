@@ -3,18 +3,21 @@ import {
     ApolloClient,
     ApolloProvider,
     createNetworkInterface
-} from 'react-apollo';
+} from "react-apollo";
+import Progress from "./components/Progress";
 
 import CheckList from "./components/CheckList";
 
-const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
+const networkInterface = createNetworkInterface({
+    uri: "http://localhost:4000/graphql"
+});
 
 const client = new ApolloClient({
     networkInterface
 });
 
-class App extends Component{
-    render(){
+class App extends Component {
+    render() {
         return (
             <div>
                 <ApolloProvider client={client}>
@@ -26,4 +29,3 @@ class App extends Component{
 }
 
 export default App;
-

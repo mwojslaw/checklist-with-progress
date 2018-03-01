@@ -1,8 +1,8 @@
 import React from "react";
 
-const Progress = ({ value, total }) => (
+const Progress = ({ done, total }) => (
     <div>
-        {value}/{total}
+        {done}/{total}
     </div>
 );
 
