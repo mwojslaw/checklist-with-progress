@@ -3,9 +3,9 @@ import { gql, graphql } from "react-apollo";
 
 import CheckListItem from "./../CheckListItem";
 
-export const checkListItemsQuery = gql`
-    query CheckListItemsQuery {
-        checkListItems {
+export const checkListItemsByStatusQuery = gql`
+    query checkListItemsByStatus($status: String) {
+        checkListItemsByStatus(status: $status) {
             name
             status
             id
@@ -13,22 +13,18 @@ export const checkListItemsQuery = gql`
     }
 `;
 
-const CheckList = (
-    { data: {loading, error, checkListItems }}
-) => {
-        if(error)
-            return <div>{error.message}</div>;
+const CheckList = ({ data: { loading, error, checkListItemsByStatus } }) => {
+    if (error) return <div>{error.message}</div>;
 
-        if(loading)
-            return <div>...</div>
-            
-        return <div>
-            { 
-                checkListItems.map(item => (
-                    <CheckListItem {...item} />
-                ))
-            }
+    if (loading) return <div>...</div>;
+
+    return (
+        <div>
+            {checkListItemsByStatus.map(item => (
+                <CheckListItem key={item.id} {...item} />
+            ))}
         </div>
-    }
+    );
+};
 
-export default graphql(checkListItemsQuery)(CheckList);
+export default graphql(checkListItemsByStatusQuery)(CheckList);
