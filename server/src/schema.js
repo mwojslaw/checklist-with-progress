@@ -11,7 +11,7 @@ const typeDefs = `
         id: ID
     }
     type Query {
-        checkListItems: [CheckListItem]
+        checkListItemsByStatus(status: String): [CheckListItem]
     }
     type Mutation {
         changeCheckListItemStatus(id: ID, status: String): CheckListItem
